@@ -1,0 +1,7 @@
+{
+  "appId": "org.hamstudy.vueTestApp",
+  "appName": "vue-test-app",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist"
+}

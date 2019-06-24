@@ -8,6 +8,10 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@capacitor/cli": "^1.1.0",
+    "@capacitor/core": "^1.1.0",
+    "@capacitor/ios": "^1.1.0",
+    "@hamstudy/capacitor-mongodb-mobile": "git+https://github.com/hamstudy/capacitor-mongodb-mobile.git",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div>Test results:</div>
     <div v-for="(r, index) of results" :key="index" class="test" :class="{'green': r.status === 'pass', 'red': r.status === 'fail'}">
       <div class="strong">
         <span>{{r.name}}... </span><span class="uppercase">{{r.status}}</span>
@@ -11,6 +12,11 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import {executeTests} from './dbTests';
+
+function pause(ms: number) {
+    return new Promise<true>((res, rej) => setTimeout(() => res(true), ms));
+}
 
 interface Test {
   name: string;
@@ -33,22 +39,15 @@ export default class Home extends Vue {
       }
     } catch (e) {
       res.status = 'fail';
-      res.text = e;
+      res.text = (e && e.message) ? e.message : String(e);
+      if (e && e.stack) {
+        console.warn(e, e.stack);
+      }
     }
   }
 
   async created() {
-    let p = new Promise(() => {});
-    await this.runTest('Wait 5 seconds and pass', async () => {
-      return new Promise((res, rej) => {
-        setTimeout(() => res(true), 5000);
-      });
-    });
-    await this.runTest('Wait 1 seconds and fail', async () => {
-      return new Promise((res, rej) => {
-        setTimeout(() => rej('The system crashed and burned and is still on fire'), 5000);
-      });
-    });
+    await executeTests(this.runTest.bind(this));
   }
 }
 </script>

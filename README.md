@@ -1,34 +1,9 @@
-# vue-test-app
+# Capacitor-mongodb-mobile test app
 
-## Project setup
-```
-npm install
-```
+We need more documentation, but new tests should be added to src/views/dbTests.ts (or feel free
+to expand the abstraction or otherwise make them better. this was quick, dirty, and functional)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Building on android
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+To run on android in the emulator you *must have* a x86_64 based emulator; it will not
+run on the default x86 ones because of missing libraries for mongodb

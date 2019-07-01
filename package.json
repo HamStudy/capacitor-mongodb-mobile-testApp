@@ -9,11 +9,12 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@capacitor/android": "^1.1.0",
     "@capacitor/cli": "^1.1.0",
     "@capacitor/core": "^1.1.0",
     "@capacitor/ios": "^1.1.0",
-    "@hamstudy/capacitor-mongodb-mobile": "~1.0.0-beta.1",
-    "@hamstudy/mongodb-mobile-client": "~1.0.0-beta.1",
+    "@hamstudy/capacitor-mongodb-mobile": "~1.0.0-beta.3",
+    "@hamstudy/mongodb-mobile-client": "~1.0.0-beta.2",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",

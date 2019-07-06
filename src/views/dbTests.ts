@@ -144,7 +144,7 @@ export async function executeTests(runTest: testRunner) {
     return true;
   });
   await runTest('Update document', async () => {
-    let result = await booksCollection.updateOne({someId: sampleDoc1.someId}, sampleDoc1);
+    let result = await booksCollection.updateOne({someId: sampleDoc1.someId}, {$set: {title: "Some new title"}});
     if (!result.modifiedCount) {
       throw new Error("falsy modifiedCount");
     }

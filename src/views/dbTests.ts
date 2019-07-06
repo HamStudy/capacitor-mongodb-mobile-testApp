@@ -143,6 +143,13 @@ export async function executeTests(runTest: testRunner) {
 
     return true;
   });
+  await runTest('Update document', async () => {
+    let result = await booksCollection.updateOne({someId: sampleDoc1.someId}, sampleDoc1);
+    if (!result.modifiedCount) {
+      throw new Error("falsy modifiedCount");
+    }
+    return true;
+  });
   await runTest('Delete all the documents from the collection', async () => {
     let res = await booksCollection.deleteMany<typeof sampleDoc1>({});
 

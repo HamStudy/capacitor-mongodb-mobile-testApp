@@ -56,6 +56,6 @@ export default class Home extends Vue {
 .red { color: red; }
 .green { color: green; }
 .uppercase { text-transform: uppercase; }
-.strong { font-weight: bold; font-size: 1.3em; }
+.strong { font-weight: bold; }
 </style>
 

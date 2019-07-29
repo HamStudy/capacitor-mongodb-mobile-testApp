@@ -85,6 +85,7 @@ export async function executeTests(runTest: testRunner) {
   // Tests:
   let db = new Db('testDb');
   let booksCollection = db.collection('books');
+  let otherCollection = db.collection('other');
 
   await runTest('Initialize the database connection', async () => {
     await MongoDBMobile.initDb();
@@ -162,6 +163,13 @@ export async function executeTests(runTest: testRunner) {
     
     assertKeyEquals(insertResult, "insertedCount", 3);
 
+    return true;
+  });
+  await runTest('There should be no documents in the "other" collection', async () => {
+    let count = await otherCollection.count<any>();
+    if (count > 0) {
+      throw new Error(`Other collection should be empty but has ${count} document(s)`);
+    }
     return true;
   });
   await runTest('Test searching with a regex, just for kicks', async () => {
